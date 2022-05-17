@@ -21,7 +21,8 @@ btn.onclick = () => {
     }
     else {
         // API recommend
-        let recommendApi = 'http://127.0.0.1:3000/MachineLearningProject/default/call/json/recommendation?input_movie=' + 
+        let recommendApi = 'http://127.0.0.1:8000/MachineLearningProject/default/call' +
+                           '/json/recommendation?input_movie=' + 
         toTitleCase(inputMovie.value);
 
         fetch(recommendApi)
@@ -31,7 +32,8 @@ btn.onclick = () => {
                 // Map to htmls
                 const htmlsData = movies.map(movie => {
                 // Movie poster API
-                let imgApi = 'https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
+                let imgApi = 'https://api.themoviedb.org/3/search/movie?' +
+                             'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
 
                 // Return the fetch Promise object
                 return fetch(imgApi)
@@ -52,7 +54,7 @@ btn.onclick = () => {
                 // Foreach Promise in htmlsData, we resolve the promise add to Html
                 recommendList.innerHTML = `
                     <h4>Recommend for you if you like 
-                    ${document.querySelector('.input-movie').value}</h4>
+                    ${inputMovie.value}</h4>
                 `;
                 htmlsData.forEach(htmlData => {
                     Promise.resolve(htmlData).then(data => {
