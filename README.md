@@ -1,7 +1,6 @@
 # MachineLearningProject
-## Install Web2py source code:
+## Install Web2py source code and extract, open vscode and open terminal in /web2py/MachineLearningProject then clone it:
 http://www.web2py.com/init/default/download
-## After download go to web2py/applications and clone this project
 
 ## To run the project go to /web2py and run below command:
 ```
