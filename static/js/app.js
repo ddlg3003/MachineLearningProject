@@ -6,7 +6,12 @@ let inputMovie = document.querySelector('.input-movie');
 const toTitleCase = (input) => {
     return input
       .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map(word => {
+        if (word === "of") {
+            return word.charAt(0).toLowerCase() + word.slice(1);
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1)
+      })
       .join(' ');
   };
 
