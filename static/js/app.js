@@ -39,7 +39,7 @@ btn.onclick = () => {
                     .then(res => res.json())
                     .then(data => {
                         return `        
-                            <div class="col-sm mt-3 mb-4">
+                            <div class="col-sm mt-3 mb-4 ml-3">
                                 <div class="card" style="width: 20rem;">
                                 <img src="http://image.tmdb.org/t/p/w500/${data.results[0].poster_path}" class="card-img-top" alt="...">
                                 <div class="card-body">
