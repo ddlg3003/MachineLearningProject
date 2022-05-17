@@ -6,8 +6,8 @@ const inputMovie = document.querySelector('.input-movie');
 const toTitleCase = (input) => {
     return input
       .split(' ')
-      .map(word => {
-        if (word === "of" || word === "the") {
+      .map((word, index) => {
+        if (word === "of" || word === "the" && index !== 0) {
             return word.charAt(0).toLowerCase() + word.slice(1);
         }
         return word.charAt(0).toUpperCase() + word.slice(1)
@@ -32,7 +32,7 @@ btn.onclick = () => {
                 const htmlsData = movies.map(movie => {
                 // Movie poster API
                 const imgApi = 'https://api.themoviedb.org/3/search/movie?' +
-                             'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
+                              'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
 
                 // Return the fetch Promise object
                 return fetch(imgApi)
