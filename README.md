@@ -9,7 +9,7 @@ python web2py.py
 This will show up, enter your password and press start server
 ![image](https://user-images.githubusercontent.com/72614237/168826862-706dc1ed-528c-45a5-b42f-d754bb9263eb.png)
 
-Then in your browser, go to: 127.0.0.1://8000/MachineLearningProject/static/index.html
+Then in your browser, go to: http://127.0.0.1:8000/MachineLearningProject/static/index.html
 ![image](https://user-images.githubusercontent.com/72614237/168827314-0fa352d4-f8db-4847-aaf1-6250d881cf3c.png)
 
 Enter a movie you like (Must contain in dataset) to recommend
