@@ -1,38 +1,37 @@
 const btn = document.querySelector('.btn');
 const recommendList = document.querySelector('.recommend-list');
-let inputMovie = document.querySelector('.input-movie');
+const inputMovie = document.querySelector('.input-movie');
 
 // Change the first letter to uppercase for optimization the search engine
 const toTitleCase = (input) => {
     return input
       .split(' ')
       .map(word => {
-        if (word === "of") {
+        if (word === "of" || word === "the") {
             return word.charAt(0).toLowerCase() + word.slice(1);
         }
         return word.charAt(0).toUpperCase() + word.slice(1)
-      })
+    })
       .join(' ');
-  };
+};
 
 btn.onclick = () => {
-    if (document.querySelector('.input-movie').value === ''){
+    if (inputMovie.value === '') {
         alert('Please input your favorite movie so we can recommend for you!');
     }
     else {
         // API recommend
-        let recommendApi = 'http://127.0.0.1:8000/MachineLearningProject/default/call' +
+        const recommendApi = 'http://127.0.0.1:8000/MachineLearningProject/default/call' +
                            '/json/recommendation?input_movie=' + 
-        toTitleCase(inputMovie.value);
+                            toTitleCase(inputMovie.value);
 
         fetch(recommendApi)
         .then(res => res.json())
         .then(movies => {
             if (movies.length > 0) {
-                // Map to htmls
                 const htmlsData = movies.map(movie => {
                 // Movie poster API
-                let imgApi = 'https://api.themoviedb.org/3/search/movie?' +
+                const imgApi = 'https://api.themoviedb.org/3/search/movie?' +
                              'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
 
                 // Return the fetch Promise object
@@ -57,14 +56,14 @@ btn.onclick = () => {
                     ${inputMovie.value}</h4>
                 `;
                 htmlsData.forEach(htmlData => {
-                    Promise.resolve(htmlData).then(data => {
-                        recommendList.innerHTML += data;
+                    Promise.resolve(htmlData).then(html => {
+                        recommendList.innerHTML += html;
                     });
                 });
-
             }
             else 
                 recommendList.innerHTML = '<h4>No results!</h4>';
+
             inputMovie.value = '';  
         })
     }
