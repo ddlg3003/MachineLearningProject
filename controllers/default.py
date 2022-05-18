@@ -33,7 +33,9 @@ def getIndex(title):
 
 # Call api
 @service.json
-def recommendation(input_movie):
+def recommendation(input_movie, page, limit):
+    startIndex = (int(page) - 1) * int(limit)
+    endIndex = int(page) * int(limit)
     try:
         movieIndex = getIndex(input_movie)
     except:
@@ -50,8 +52,10 @@ def recommendation(input_movie):
             if (getTitle(movie[0]) != input_movie):
                 recommendList.append(getTitle(movie[0]))
             i = i + 1
-            if i > 10:
+            if i > 20:
                 break
+                
+    paginatedList = recommendList[startIndex:endIndex]
 
-    return recommendList
+    return paginatedList
     

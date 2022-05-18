@@ -29,6 +29,32 @@
       .recommend-search {
         display: inherit;
       }
+      .loader {
+        display: none;
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        margin-left: 50%;
+    }
+    .active {
+      display: inline-block;
+    }
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h3 {
+      margin-left: -14px;
+    }
     </style>
 </head>
 <body>
@@ -43,17 +69,19 @@
         </nav>
       </header>
       <div class="content mt-4 container container-margin">
-        <div class="recommend-list row">
+        <h3>Your favorite: <span class="loadmore-data"></span></h3>
+        <div class="recommend-list row justify-content-center">
           <h4>The recommendation for your favorite movie will show here!</h4>
-            <div class="col-sm mt-3 mb-4 ml-3">
-              <div class="card" style="width: 20rem;">
-              <img src="http://image.tmdb.org/t/p/w500//RYMX2wcKCBAr24UyPD7xwmjaTn.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <h5 class="card-title">The Avengers</h5>
-              </div>
+            <div class="col-sm-3 mt-3 mb-4">
+              <div class="card" style="width: 16rem;">
+                <img src="http://image.tmdb.org/t/p/w500//RYMX2wcKCBAr24UyPD7xwmjaTn.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Avengers</h5>
+                </div>
               </div>
           </div>
         </div>
+        <div class="loader"></div> 
       </div> 
       <footer class="page-footer font-small blue bg-dark">
         <!-- Copyright -->
