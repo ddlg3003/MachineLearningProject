@@ -68,7 +68,6 @@ function showLoading() {
     setTimeout(() => {
         if (page < 5) {
             page++;
-            console.log(page);
             loadMovies(loadmoreData.innerHTML);
         }
         loader.classList.remove('active');
@@ -80,6 +79,7 @@ btn.onclick = () => {
         alert('Please input your favorite movie so we can recommend for you!');
     }
     else {
+        page = 1;
         loadmoreData.innerHTML = `${inputMovie.value}`;
         recommendList.innerHTML = `
         <h4>Recommend for you if you like ${inputMovie.value}</h4>`;
