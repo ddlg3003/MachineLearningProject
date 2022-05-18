@@ -1,4 +1,5 @@
 # MachineLearningProject
+A basic project that recommend movies that similar to your favorite movie.
 Install Web2py source code and extract, open vscode and open terminal in /web2py/applications then clone it:
 http://www.web2py.com/init/default/download
 
