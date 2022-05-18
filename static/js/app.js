@@ -72,6 +72,10 @@ function showLoading() {
         }
         loader.classList.remove('active');
     }, 3000);
+
+    if (page >= 5) {
+        loader.classList.remove('active');
+    }
 }
 
 btn.onclick = () => {
@@ -90,7 +94,7 @@ btn.onclick = () => {
         document.addEventListener('scroll', () => {
             const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
         
-            if (scrollTop + clientHeight >= scrollHeight - 2) {
+            if (scrollTop + clientHeight >= scrollHeight - 7) {
                 showLoading();
             }
         })
