@@ -69,9 +69,10 @@ function showLoading() {
         if (page < 5) {
             page++;
             loadMovies(loadmoreData.innerHTML);
+            console.log(page)
         }
+        setTimeout(() => {loader.classList.remove('active')}, 1000);
 
-        setTimeout(() => {loader.classList.remove('active')}, 2000);
     }, 1000);
 
     if (page >= 5) {
@@ -91,14 +92,20 @@ btn.onclick = () => {
 
         loadMovies(inputMovie.value);
 
+        let debound = true;
         // Listen the scroll-down event and showmore when scroll more than the height 
-        document.addEventListener('scroll', () => {
+        window.addEventListener('scroll', () => {
             const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
         
-            if (scrollTop + clientHeight >= scrollHeight - 10) {
+            if (scrollTop + clientHeight >= scrollHeight - 5 && debound) {
+                debound = false;
                 showLoading();
+
+                setTimeout(() => {
+                    debound = true;
+                }, 3000);
             }
-        })
+        });
 
         inputMovie.value = '';
     }
