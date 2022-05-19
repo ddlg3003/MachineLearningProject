@@ -5,7 +5,7 @@ const loader = document.querySelector('.loader');
 const loadmoreData = document.querySelector('.loadmore-data');
 
 let page = 1;
-let limit = 4; 
+let limit = 8; 
 
 // Change the first letter to uppercase for optimization the search engine
 const toTitleCase = (input) => {
@@ -70,8 +70,9 @@ function showLoading() {
             page++;
             loadMovies(loadmoreData.innerHTML);
         }
-        loader.classList.remove('active');
-    }, 3000);
+
+        setTimeout(() => {loader.classList.remove('active')}, 2000);
+    }, 1000);
 
     if (page >= 5) {
         loader.classList.remove('active');
@@ -94,7 +95,7 @@ btn.onclick = () => {
         document.addEventListener('scroll', () => {
             const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
         
-            if (scrollTop + clientHeight >= scrollHeight - 7) {
+            if (scrollTop + clientHeight >= scrollHeight - 10) {
                 showLoading();
             }
         })
