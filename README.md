@@ -19,7 +19,7 @@ Then in your browser, go to: http://127.0.0.1:8000/MachineLearningProject/static
 
 
 
-![image](https://user-images.githubusercontent.com/72614237/169109630-e31afd27-9bdf-4c60-a03b-3a7958dc73f1.png)
+![image](https://user-images.githubusercontent.com/72614237/169541776-9b98c7cf-4985-474d-8119-da1db5c16b9d.png)
 
 
 
