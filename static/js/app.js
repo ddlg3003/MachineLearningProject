@@ -109,8 +109,3 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
-
-const arr = ['Im', 'Dang', 'Hello', 'World'];
-
-const string = '';
-
