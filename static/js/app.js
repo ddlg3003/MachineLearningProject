@@ -34,7 +34,6 @@ function loadMovies(movie) {
             const imgApi = 'https://api.themoviedb.org/3/search/movie?' +
                           'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
 
-            // Return the fetch Promise object
             fetch(imgApi)
             .then(res => res.json())
             .then(data => {
