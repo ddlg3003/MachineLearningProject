@@ -29,34 +29,28 @@ function loadMovies(movie) {
     .then(res => res.json())
     .then(movies => {
         if (movies.length > 0) {
-            const htmlsData = movies.map(movie => {
+            movies.forEach(movie => {
             // Movie poster API
             const imgApi = 'https://api.themoviedb.org/3/search/movie?' +
                           'api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=' + movie;
 
             // Return the fetch Promise object
-            return fetch(imgApi)
-                .then(res => res.json())
-                .then(data => {
-                    return `        
-                        <div class="col-sm-3 mt-3 mb-4">
+            fetch(imgApi)
+            .then(res => res.json())
+            .then(data => {
+                    const div = document.createElement('div');
+                    div.classList.add('col-sm-3', 'mt-3', 'mb-4');
+                    div.innerHTML = `
                             <div class="card" style="width: 16rem;">
-                            <img src="http://image.tmdb.org/t/p/w500/${data.results[0].poster_path}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">${movie}</h5>
-                            </div>
-                            </div>
-                        </div>`
+                                <img src="http://image.tmdb.org/t/p/w500/${data.results[0].poster_path}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">${movie}</h5>
+                                </div>
+                            </div>`;
+                    recommendList.appendChild(div);
                 })
-                .catch(err => console.log(err));
+            .catch(err => console.log(err));
             })
-
-            // Foreach Promise in htmlsData, we resolve the promise add to Html
-            htmlsData.forEach(htmlData => {
-                Promise.resolve(htmlData).then(html => {
-                    recommendList.innerHTML += html;
-                });
-            });
         }
     })     
 }
@@ -69,7 +63,6 @@ function showLoading() {
         if (page < 5) {
             page++;
             loadMovies(loadmoreData.innerHTML);
-            console.log(page)
         }
         setTimeout(() => {loader.classList.remove('active')}, 1000);
 
@@ -116,3 +109,9 @@ document.addEventListener("keyup", (e) => {
         btn.click();
     }
 });
+
+
+const arr = ['Im', 'Dang', 'Hello', 'World'];
+
+const string = '';
+
